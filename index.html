@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stuck on you</title>
@@ -11,47 +12,50 @@
     <style>
         body {
             margin: 0;
-            background: #6565FB;
             font-family: 'Dancing Script', cursive;
-            position: relative;
             height: 100vh;
+            position: relative;
         }
+
         h2 {
             text-align: center;
             color: #EFFF09;
             font-size: 3em;
             margin: 20px 0;
         }
+
         model-viewer {
-            width: 100%; /* 100% of the parent's width */
-            height: 80vh; /* 80% of the viewport height */
+            width: 100%;
+            height: calc(100% - 20vh); /* 80% of the viewport height */
             display: block;
             margin: auto;
         }
+
         .gradient-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 30%; /* 30% of the viewport height */
-            background: linear-gradient(to top, #2D2D6D, transparent);
+            height: 20vh; /* 20% of the viewport height */
+            background: linear-gradient(to top, #6565FB, #2D2D6D);
         }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <h2>Stuck on you</h2>
-    <model-viewer 
+    <model-viewer
         id="model-viewer"
         src="model.glb"
         ios-src="dreimaster_unsubdivided.usdz"
         alt="Kunsthalle AR Show"
         ar
-        ar-modes="webxr scene-viewer quick-look" 
-        environment-image="neutral" 
+        ar-modes="webxr scene-viewer quick-look"
+        environment-image="neutral"
         auto-rotate
         camera-controls
-        animation-name="CubeAction" 
-        animation-loop>  
+        animation-name="CubeAction"
+        animation-loop>
     </model-viewer>
     <div class="gradient-overlay"></div>
     <script>
@@ -67,5 +71,6 @@
 
         document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
     </script>
-  </body>
+</body>
+
 </html>
