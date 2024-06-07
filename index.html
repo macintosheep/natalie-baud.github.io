@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stuck on you</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, #2D2D6D 0%, #2D2D6D 33%, #6565FB 33%, #6565FB 100%);
+            font-family: 'Dancing Script', cursive;
+        }
+        h2 {
+            text-align: center;
+            color: #EFFF09;
+            font-size: 3em;
+            margin: 20px 0;
+        }
         model-viewer {
             width: 100%; /* 100% of the parent's width */
             height: 80vh; /* 80% of the viewport height */
@@ -15,7 +29,7 @@
     </style>
   </head>
   <body>
-    <h2>Skulptur 3</h2>
+    <h2>Stuck on you</h2>
     <model-viewer 
         id="model-viewer"
         src="model.glb"
