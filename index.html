@@ -9,40 +9,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-   <style>
+    <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(to top, #131A57 30%, #4652BC 70%);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            overflow: hidden;
+            font-family: 'Dancing Script', cursive;
+            height: 100vh;
+            background-color: #6565FB;
+            overflow: hidden; /* Prevents overflow */
         }
 
-        h1 {
-            font-family: 'Dancing Script', cursive;
+        h2 {
+            text-align: center;
+            color: transparent; /* Making the text transparent */
             font-size: 3em;
             margin: 20px 0;
-            animation: wave 2s infinite;
+            animation: waterEffect 3s ease-in-out infinite; /* Applying the water effect animation */
         }
 
-        @keyframes wave {
-            0%, 100% {
-                transform: translateY(0);
+        @keyframes waterEffect {
+            0% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 70px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc;
             }
             50% {
-                transform: translateY(-10px);
+                text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 70px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc, 0 0 200px #ff99cc;
+            }
+            100% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 70px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc;
             }
         }
 
-        @media only screen and (max-width: 600px) {
-            h1 {
-                font-size: 2em;
+        model-viewer {
+            width: 100%;
+            height: calc(100% - 20vh); /* 80% of the viewport height */
+            display: block;
+            margin: auto;
+        }
     </style>
 </head>
 
@@ -61,7 +62,6 @@
         animation-name="CubeAction"
         animation-loop>
     </model-viewer>
-    <div class="gradient-overlay"></div>
     <script>
         async function checkARCoreCompatibility() {
             const modelViewer = document.getElementById('model-viewer');
