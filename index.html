@@ -56,6 +56,7 @@
       display: block;
       max-width: 60%; /* Adjust as needed */
       height: 100%;
+      z-index: 1; /* Ensure the model is in the foreground */
     }
 
     .side-box {
@@ -99,7 +100,7 @@
     <img src="fishi.png" alt="Fish Image" class="left-image">
     <model-viewer 
         id="model-viewer"
-        src="https://raw.githubusercontent.com/USERNAME/REPOSITORY/master/dreimaster.glb" <!-- Ersetzen Sie USERNAME und REPOSITORY durch Ihre GitHub-Daten -->
+        src="https://raw.githubusercontent.com/macintosheep/stuck-on-u.github.io/master/dreimaster.glb"
         ios-src="dreimaster_unsubdivided.usdz"
         alt="Kunsthalle AR Show"
         ar
