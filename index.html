@@ -1,80 +1,136 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stuck on you</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Dancing Script', cursive;
-            height: 100vh;
-            background-color: #6565FB;
-            overflow: hidden; /* Prevents overflow */
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stuck on u</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    html {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(to top, #0E1459 30%, #6565FB 100%);
+    }
 
-        h2 {
-            text-align: center;
-            color: transparent; /* Making the text transparent */
-            font-size: 3em;
-            margin: 20px 0;
-            animation: waterEffect 3s ease-in-out infinite; /* Applying the water effect animation */
-        }
+    body {
+      font-family: 'Dancing Script', cursive;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        @keyframes waterEffect {
-            0% {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 70px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc;
-            }
-            50% {
-                text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 70px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc, 0 0 200px #ff99cc;
-            }
-            100% {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 70px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc;
-            }
-        }
+    h2 {
+      text-align: center;
+      color: #FFCA0D;
+      font-size: 3em;
+      margin: 20px 0;
+      animation: waterEffect 2s infinite alternate ease-in-out;
+    }
 
-        model-viewer {
-            width: 100%;
-            height: calc(100% - 20vh); /* 80% of the viewport height */
-            display: block;
-            margin: auto;
-        }
-    </style>
+    @keyframes waterEffect {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 80vh;
+    }
+
+    model-viewer {
+      flex: 1;
+      display: block;
+      max-width: 60%; /* Adjust as needed */
+      height: 100%;
+    }
+
+    .side-box {
+      width: 300px;
+      background-color: #6565FB;
+      margin-left: 50px; /* Adds space between side-box and model-viewer */
+      margin-right: 50px; /* Adds space between side-box and the edge of the screen */
+      height: 100%; /* Set the height to 100% */
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 20px; /* Adjust border-radius as needed */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
+    }
+
+    .side-box p {
+      font-family: 'Open Sans', sans-serif;
+      color: #FFCA0D;
+      text-align: center;
+      font-size: 1.2em;
+      margin: 0;
+      line-height: 3; /* Adjust line-height as needed */
+      text-shadow: 4px 4px 6px rgba(27, 19, 71, 0.534); /* Shadow for the text */
+    }
+
+    /* Styles for the image */
+    .left-image {
+      max-width: 25%; /* Adjust the width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-right: 20px; /* Adds space between image and side-box */
+      margin-left: 50px
+    }
+  </style>
 </head>
-
 <body>
-    <h2>Stuck on you</h2>
-    <model-viewer
+  <h2>Stuck on you</h2>
+  <div class="content">
+    <img src="fishi.png" alt="Fish Image" class="left-image">
+    <model-viewer 
         id="model-viewer"
-        src="model.glb"
+        src="dreimaster.glb"
         ios-src="dreimaster_unsubdivided.usdz"
         alt="Kunsthalle AR Show"
         ar
-        ar-modes="webxr scene-viewer quick-look"
-        environment-image="neutral"
+        ar-modes="webxr scene-viewer quick-look" 
+        environment-image="neutral" 
         auto-rotate
         camera-controls
-        animation-name="CubeAction"
-        animation-loop>
+        animation-name="CubeAction" 
+        animation-loop>  
     </model-viewer>
-    <script>
-        async function checkARCoreCompatibility() {
-            const modelViewer = document.getElementById('model-viewer');
-            const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-            if (!isARCoreSupported) {
-                modelViewer.removeAttribute('ar');
-                modelViewer.removeAttribute('ar-modes');
-                alert('Your device is not compatible with AR features. You can still view the 3D model.');
-            }
-        }
+    <div class="side-box">
+      <p>Loslassen und nichts fassen,<br>
+      denn alles was du brauchst,<br>
+      das findest du in dir.<br>
+      Also werf sie über Bord,<br>
+      die ganzen Laster,<br>
+      denn es geht nur immer weiter.</p>
+    </div>
+  </div>
+  <script>
+    async function checkARCoreCompatibility() {
+      const modelViewer = document.getElementById('model-viewer');
+      const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
+      if (!isARCoreSupported) {
+        modelViewer.removeAttribute('ar');
+        modelViewer.removeAttribute('ar-modes');
+        alert('Your device is not compatible with AR features. You can still view the 3D model.');
+      }
+    }
 
-        document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-    </script>
+    document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
+  </script>
 </body>
-
 </html>
