@@ -37,30 +37,40 @@
             }
         }
 
+        .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         model-viewer {
             width: 100%;
-            height: 80vh;
+            height: 100%;
             display: block;
-            margin: auto;
+            margin: 0;
             z-index: 1; /* Ensure the model is in the foreground */
         }
     </style>
   </head>
   <body>
     <h2>Skulptur 3</h2>
-    <model-viewer 
-        id="model-viewer"
-        src="model.glb"
-        ios-src="dreimaster_unsubdivided.usdz"
-        alt="Kunsthalle AR Show"
-        ar
-        ar-modes="webxr scene-viewer quick-look" 
-        environment-image="neutral" 
-        auto-rotate
-        camera-controls
-        animation-name="CubeAction" 
-        animation-loop>  
-    </model-viewer>
+    <div class="content">
+      <model-viewer 
+          id="model-viewer"
+          src="model.glb"
+          ios-src="dreimaster_unsubdivided.usdz"
+          alt="Kunsthalle AR Show"
+          ar
+          ar-modes="webxr scene-viewer quick-look" 
+          environment-image="neutral" 
+          auto-rotate
+          camera-controls
+          animation-name="CubeAction" 
+          animation-loop>  
+      </model-viewer>
+    </div>
     <script>
         async function checkARCoreCompatibility() {
             const modelViewer = document.getElementById('model-viewer');
