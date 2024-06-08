@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kunsthalle AR Show!</title>
@@ -58,83 +58,84 @@
         }
 
         .side-box {
-          width: 300px;
-          background-color: #6565FB;
-          margin-left: 50px; /* Adds space between side-box and model-viewer */
-          margin-right: 50px; /* Adds space between side-box and the edge of the screen */
-          height: 100%; /* Set the height to 100% */
-          height: 520px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 20px;
-          box-sizing: border-box;
-          border-radius: 20px; /* Adjust border-radius as needed */
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
-          z-index: 1; /* Ensure the side box is behind the model viewer */
+            width: calc(50% - 200px); /* 50% of the width minus 200px for padding */
+            background-color: #6565FB;
+            margin-left: 50px; /* Adds space between side-box and model-viewer */
+            margin-right: 50px; /* Adds space between side-box and the edge of the screen */
+            height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 20px; /* Adjust border-radius as needed */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
+            z-index: 1; /* Ensure the side box is behind the model viewer 
         }
 
         .side-box p {
-          font-family: 'Open Sans', sans-serif;
-          color: #FFCA0D;
-          text-align: center;
-          font-size: 1.2em;
-          margin: 0;
-          line-height: 3; /* Adjust line-height as needed */
-          text-shadow: 4px 4px 6px rgba(27, 19, 71, 0.534); /* Shadow for the text */
+            font-family: 'Open Sans', sans-serif;
+            color: #FFCA0D;
+            text-align: center;
+            font-size: 1.2em;
+            margin: 0;
+            line-height: 3; /* Adjust line-height as needed */
+            text-shadow: 4px 4px 6px rgba(27, 19, 71, 0.534); /* Shadow for the text */
         }
 
         .image-container {
-          width: 300px;
-          height: 520px;
-          margin-left: 50px; /* Adds space between image-container and model-viewer */
-          background-image: url('fishi.png');
-          background-size: cover;
-          background-position: center;
-          border-radius: 20px; /* Adjust border-radius as needed */
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
-          z-index: 0; /* Ensure the image is behind the model viewer */
+            position: absolute; /* Position the image container absolutely */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url('fishi.png');
+            background-size: cover;
+            width: 300px;
+            height: 520px;
+            border-radius: 20px; /* Adjust border-radius as needed */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
+            z-index: 0; /* Ensure the image is behind the model viewer */
         }
     </style>
-  </head>
-  <body>
-    <h2>Skulptur 3</h2>
-    <div class="content">
-      <div class="side-box">
+</head>
+<body>
+<h2>Stuck on you</h2>
+<div class="content">
+    <div class="side-box">
         <p>Loslassen und nichts fassen,<br>
-        denn alles was du brauchst,<br>
-        das findest du in dir.<br>
-        Also werf sie über Bord,<br>
-        die ganzen Laster,<br>
-        denn es geht nur immer weiter.</p>
-      </div>
-      <model-viewer 
-          id="model-viewer"
-          src="model.glb"
-          ios-src="dreimaster_unsubdivided.usdz"
-          alt="Kunsthalle AR Show"
-          ar
-          ar-modes="webxr scene-viewer quick-look" 
-          environment-image="neutral" 
-          auto-rotate
-          camera-controls
-          animation-name="CubeAction" 
-          animation-loop>  
-      </model-viewer>
-      <div class="image-container"></div>
+            denn alles was du brauchst,<br>
+            das findest du in dir.<br>
+            Also werf sie über Bord,<br>
+            die ganzen Laster,<br>
+            denn es geht nur immer weiter.</p>
     </div>
-    <script>
-        async function checkARCoreCompatibility() {
-            const modelViewer = document.getElementById('model-viewer');
-            const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-            if (!isARCoreSupported) {
-                modelViewer.removeAttribute('ar');
-                modelViewer.removeAttribute('ar-modes');
-                alert('Your device is not compatible with AR features. You can still view the 3D model.');
-            }
+    <model-viewer
+            id="model-viewer"
+            src="model.glb"
+            ios-src="dreimaster_unsubdivided.usdz"
+            alt="Stuck on you"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            environment-image="neutral"
+            auto-rotate
+            camera-controls
+            animation-name="CubeAction"
+            animation-loop>
+    </model-viewer>
+    <div class="image-container"></div>
+</div>
+<script>
+    async function checkARCoreCompatibility() {
+        const modelViewer = document.getElementById('model-viewer');
+        const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
+        if (!isARCoreSupported) {
+            modelViewer.removeAttribute('ar');
+            modelViewer.removeAttribute('ar-modes');
+            alert('Your device is not compatible with AR features. You can still view the 3D model.');
         }
+    }
 
-        document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-    </script>
-  </body>
+    document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
+</script>
+</body>
 </html>
