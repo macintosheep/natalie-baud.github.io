@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stuck on u</title>
+    <title>Stuck on you</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +14,13 @@
             width: 100%;
             margin: 0;
             background: linear-gradient(to top, #0E1459 30%, #6565FB 100%);
+            font-family: 'Dancing Script', cursive;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-family: 'Dancing Script', cursive;
+            justify-content: flex-start;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
         }
 
         h2 {
@@ -43,35 +45,34 @@
         }
 
         .content {
-            flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
             width: 100%;
-            position: relative;
             padding: 20px;
             box-sizing: border-box;
         }
 
         model-viewer {
-            flex: 1;
-            height: 100%;
+            width: 100%;
+            max-width: 600px;
+            height: 500px;
             display: block;
-            z-index: 2; /* Ensure the model viewer is in the foreground */
+            z-index: 2;
         }
 
         .side-box {
             width: 300px;
             background-color: #6565FB;
-            margin-left: 20px; /* Adds space between side-box and the left edge of the screen */
-            height: 520px;
+            margin: 20px 0;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
             box-sizing: border-box;
-            border-radius: 20px; /* Adjust border-radius as needed */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
-            display: none; /* Initially hide the side box */
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
 
         .side-box p {
@@ -80,19 +81,15 @@
             text-align: center;
             font-size: 1.2em;
             margin: 0;
-            line-height: 1.5; /* Adjust line-height as needed */
-            text-shadow: 4px 4px 6px rgba(27, 19, 71, 0.534); /* Shadow for the text */
+            line-height: 1.5;
+            text-shadow: 4px 4px 6px rgba(27, 19, 71, 0.534);
         }
 
         .fishi {
-            display: none; /* Initially hide the fishi image */
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
+            margin: 20px 0;
             width: 300px;
             height: auto;
-            z-index: 0; /* Ensure the image is behind the model viewer */
+            z-index: 0;
         }
     </style>
 </head>
@@ -134,32 +131,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-
-    // Function to handle scroll event
-    function handleScroll() {
-        const sideBox = document.querySelector('.side-box');
-        const fishiImage = document.querySelector('.fishi');
-        const windowHeight = window.innerHeight;
-        const scrollY = window.scrollY || window.pageYOffset;
-        const sideBoxOffset = sideBox.offsetTop;
-
-        // If user scrolls down to the position of the side box, show the side box
-        if (scrollY + windowHeight >= sideBoxOffset) {
-            sideBox.style.display = 'flex';
-        } else {
-            sideBox.style.display = 'none';
-        }
-
-        // If user scrolls further, show the fishi image
-        if (scrollY + windowHeight >= document.body.scrollHeight) {
-            fishiImage.style.display = 'block';
-        } else {
-            fishiImage.style.display = 'none';
-        }
-    }
-
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
 </script>
 </body>
 </html>
