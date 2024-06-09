@@ -15,7 +15,6 @@
             height: 100%;
             width: 100%;
             margin: 0;
-            background: linear-gradient(to top, #0E1459 30%, #6565FB 100%);
             font-family: 'Dancing Script', cursive;
         }
 
@@ -49,12 +48,13 @@
             justify-content: center;
             padding: 20px;
             box-sizing: border-box;
+            height: 100%;
         }
 
         model-viewer {
             width: 80%; /* Adjust the width as needed */
             max-width: 600px;
-            height: 500px; /* Adjust the height as needed */
+            height: auto;
             margin-bottom: 20px;
         }
 
@@ -79,9 +79,27 @@
         }
 
         .fishi {
-            width: 300px;
+            width: 80%; /* Adjust the width as needed */
+            max-width: 300px;
             height: auto;
             margin-top: 20px;
+        }
+
+        /* Background gradient covering the entire viewport */
+        body {
+            background: linear-gradient(to top, #0E1459 30%, #6565FB 100%);
+            background-size: cover;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            h2 {
+                font-size: 2em;
+            }
+
+            .side-box p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
