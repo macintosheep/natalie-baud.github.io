@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stuck on u</title>
+    <title>Stuck on You</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,7 @@
             height: 100%;
             width: 100%;
             margin: 0;
+            background: linear-gradient(to top, #0E1459 30%, #6565FB 100%);
             font-family: 'Dancing Script', cursive;
         }
 
@@ -24,7 +25,7 @@
             font-size: 3em;
             margin: 20px 0;
             animation: waterEffect 2s infinite alternate ease-in-out;
-            font-family: 'Stuck on You', 'Dancing Script', cursive;
+            font-family: 'Dancing Script', cursive;
         }
 
         @keyframes waterEffect {
@@ -48,13 +49,12 @@
             justify-content: center;
             padding: 20px;
             box-sizing: border-box;
-            height: 100%;
         }
 
         model-viewer {
-            width: 80%; /* Adjust the width as needed */
+            width: 100%; /* Adjust the width to fill the screen */
             max-width: 600px;
-            height: auto;
+            height: 70vh; /* Adjust the height for better viewing on smaller screens */
             margin-bottom: 20px;
         }
 
@@ -79,39 +79,22 @@
         }
 
         .fishi {
-            width: 80%; /* Adjust the width as needed */
+            width: 80%; /* Adjust size as needed */
             max-width: 300px;
             height: auto;
             margin-top: 20px;
-        }
-
-        /* Background gradient covering the entire viewport */
-        body {
-            background: linear-gradient(to top, #0E1459 30%, #6565FB 100%);
-            background-size: cover;
-        }
-
-        /* Media query for smaller screens */
-        @media screen and (max-width: 600px) {
-            h2 {
-                font-size: 2em;
-            }
-
-            .side-box p {
-                font-size: 1em;
-            }
         }
     </style>
 </head>
 
 <body>
-    <h2>Stuck on you</h2>
+    <h2>Stuck on You</h2>
     <div class="content">
         <model-viewer
             id="model-viewer"
             src="model.glb"
             ios-src="dreimaster_unsubdivided.usdz"
-            alt="Stuck on you"
+            alt="Stuck on You"
             ar
             ar-modes="webxr scene-viewer quick-look"
             environment-image="neutral"
