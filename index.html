@@ -80,17 +80,13 @@
             text-shadow: 4px 4px 6px rgba(27, 19, 71, 0.534); /* Shadow for the text */
         }
 
-        .image-container {
-            position: absolute; /* Position the image container absolutely */
+        .fishi {
+            position: absolute;
             top: 50%;
-            right: 20px; /* Position the image container to the right */
+            right: 20px;
             transform: translateY(-50%);
-            background-image: url('fishi.png');
-            background-size: cover;
             width: 300px;
-            height: 520px;
-            border-radius: 20px; /* Adjust border-radius as needed */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
+            height: auto;
             z-index: 0; /* Ensure the image is behind the model viewer */
         }
     </style>
@@ -119,7 +115,7 @@
             animation-name="CubeAction"
             animation-loop>
     </model-viewer>
-    <div class="image-container"></div>
+    <img src="fishi.png" alt="Fishi" class="fishi">
 </div>
 <script>
     async function checkARCoreCompatibility() {
