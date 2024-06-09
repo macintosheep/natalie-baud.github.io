@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -72,7 +71,6 @@
             box-sizing: border-box;
             border-radius: 20px; /* Adjust border-radius as needed */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust box-shadow as needed */
-            display: none; /* Initially hide the side box */
         }
 
         .side-box p {
@@ -86,7 +84,6 @@
         }
 
         .fishi {
-            display: none; /* Initially hide the fishi image */
             position: absolute;
             top: 50%;
             right: 20px;
@@ -100,6 +97,14 @@
 <body>
 <h2>Stuck on you</h2>
 <div class="content">
+    <div class="side-box">
+        <p>Loslassen und nichts fassen,<br>
+            denn alles was du brauchst,<br>
+            das findest du in dir.<br>
+            Also werf sie über Bord,<br>
+            die ganzen Laster,<br>
+            denn es geht nur immer weiter.</p>
+    </div>
     <model-viewer
             id="model-viewer"
             src="model.glb"
@@ -113,14 +118,6 @@
             animation-name="CubeAction"
             animation-loop>
     </model-viewer>
-    <div class="side-box">
-        <p>Loslassen und nichts fassen,<br>
-            denn alles was du brauchst,<br>
-            das findest du in dir.<br>
-            Also werf sie über Bord,<br>
-            die ganzen Laster,<br>
-            denn es geht nur immer weiter.</p>
-    </div>
     <img src="fishi.png" alt="Fishi" class="fishi">
 </div>
 <script>
@@ -135,32 +132,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-
-    // Function to handle scroll event
-    function handleScroll() {
-        const sideBox = document.querySelector('.side-box');
-        const fishiImage = document.querySelector('.fishi');
-        const windowHeight = window.innerHeight;
-        const scrollY = window.scrollY || window.pageYOffset;
-        const sideBoxOffset = sideBox.offsetTop;
-
-        // If user scrolls down to the position of the side box, show the side box
-        if (scrollY + windowHeight >= sideBoxOffset) {
-            sideBox.style.display = 'flex';
-        } else {
-            sideBox.style.display = 'none';
-        }
-
-        // If user scrolls further, show the fishi image
-        if (scrollY + windowHeight >= document.body.scrollHeight) {
-            fishiImage.style.display = 'block';
-        } else {
-            fishiImage.style.display = 'none';
-        }
-    }
-
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
 </script>
 </body>
 </html>
