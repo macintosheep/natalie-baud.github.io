@@ -52,9 +52,9 @@
         }
 
         model-viewer {
-            width: 100%;
+            width: 100%; /* Adjust the width to fill the screen */
             max-width: 600px;
-            height: 70vh;
+            height: 70vh; /* Adjust the height for better viewing on smaller screens */
             margin-bottom: 20px;
         }
 
@@ -79,7 +79,7 @@
         }
 
         .fishi {
-            width: 80%;
+            width: 80%; /* Adjust size as needed */
             max-width: 300px;
             height: auto;
             margin-top: 20px;
@@ -97,6 +97,7 @@
             alt="Stuck on You"
             ar
             ar-modes="webxr scene-viewer quick-look"
+            environment-image="neutral"
             auto-rotate
             camera-controls
             animation-name="CubeAction"
@@ -110,26 +111,16 @@
                 die ganzen Laster,<br>
                 denn es geht nur immer weiter.</p>
         </div>
-        <img src="path/to/your/fishi.png" alt="Fishi" class="fishi">
+        <img src="fishi.png" alt="Fishi" class="fishi">
     </div>
     <script>
         async function checkARCoreCompatibility() {
             const modelViewer = document.getElementById('model-viewer');
-            if (navigator.xr) {
-                try {
-                    const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-                    if (!isARCoreSupported) {
-                        modelViewer.removeAttribute('ar');
-                        modelViewer.removeAttribute('ar-modes');
-                        alert('Your device is not compatible with AR features. You can still view the 3D model.');
-                    }
-                } catch (error) {
-                    console.error('Error checking ARCore compatibility:', error);
-                    alert('An error occurred while checking AR compatibility.');
-                }
-            } else {
-                console.log('WebXR not supported.');
-                alert('Your browser does not support WebXR.');
+            const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
+            if (!isARCoreSupported) {
+                modelViewer.removeAttribute('ar');
+                modelViewer.removeAttribute('ar-modes');
+                alert('Your device is not compatible with AR features. You can still view the 3D model.');
             }
         }
 
